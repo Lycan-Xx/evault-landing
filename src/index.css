@@ -1,7 +1,47 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+@theme {
+  --color-primary-dark-blue: #0a1a3a;
+  --color-deep-dark-blue: #020817;
+  --color-accent-blue: #1e40af;
+  --color-glass-blue: rgba(30, 64, 175, 0.1);
+  --color-footer-dark-blue: #0f172a;
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-component-v: 16px;
+  --spacing-component-h: 24px;
+  --breakpoint-mobile: 320px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --max-width-mobile: 100%;
+  --max-width-tablet: 720px;
+  --max-width-desktop: 1200px;
+  --max-width-content: 1200px;
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 12px;
+  --bg-image-glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  --bg-image-dark-gradient: linear-gradient(135deg, #0a1a3a 0%, #020817 100%);
+  --bg-image-hero-gradient: linear-gradient(135deg, #1e40af 0%, #0a1a3a 50%, #020817 100%);
+  --blur-xs: 2px;
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --shadow-glow: 0 0 20px rgba(249, 115, 22, 0.3);
+  --animate-single-bounce-with-delay: single-bounce-with-delay 5s ease-in-out infinite;
+}
+
+@keyframes single-bounce-with-delay {
+  0% { transform: translateY(0); }
+  4% { transform: translateY(-15px); }
+  8% { transform: translateY(0); }
+  12% { transform: translateY(-10px); }
+  16% { transform: translateY(0); }
+  20% { transform: translateY(-5px); }
+  24% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
 
 .navbar {
 	background-color: #1e3a8a; /* Dark blue */
@@ -47,3 +87,43 @@
 	opacity: 1 !important;
 	visibility: visible !important;
   }
+
+@layer utilities {
+  .rounded-small {
+    border-radius: var(--radius-small);
+  }
+  .rounded-medium {
+    border-radius: var(--radius-medium);
+  }
+  .rounded-large {
+    border-radius: var(--radius-large);
+  }
+  .bg-glass-gradient {
+    background-image: var(--bg-image-glass-gradient);
+  }
+  .bg-dark-gradient {
+    background-image: var(--bg-image-dark-gradient);
+  }
+  .bg-hero-gradient {
+    background-image: var(--bg-image-hero-gradient);
+  }
+  .backdrop-blur-xs {
+    backdrop-filter: blur(var(--blur-xs));
+  }
+  .shadow-glass {
+    box-shadow: var(--shadow-glass);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .animate-single-bounce-with-delay {
+    animation: var(--animate-single-bounce-with-delay);
+  }
+}
+
+/* optional custom styles */
+html,
+body,
+#root {
+  height: 100%;
+}
